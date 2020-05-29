@@ -1,0 +1,11 @@
+version: "3"
+services:
+  ruby:
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app:delegated
+      # to prevent the node_modules from getting hidden by the volume
+      # https://stackoverflow.com/a/32785014/358804
+      - /app/node_modules
